@@ -6,8 +6,9 @@ export default function Sign(){
     const [email,setEmail]=useState("")
     const [pass,setPass]=useState("")
     const [name,setName]=useState("")
+    const [username,setUsername]=useState("")
     return(
-        <div className='flex items-center justify-center flex-col gap-5 p-15'>
+        <div className='flex items-center justify-center flex-col gap-5 px-15 pb-10'>
             <div className='w-full'>
                 <Link to="/"><h1 className='w-fit py-2 px-2 cursor-pointer hover:scale-105 duration-300'><ArrowLeft/></h1></Link>
             </div>
@@ -16,8 +17,8 @@ export default function Sign(){
                 <h1 className="md:text-md font-ibm">LinkDeck</h1>
         </div>
         <div className='flex items-start justify-center flex-col gap-5 border-3 py-5 px-10 rounded-[10px] shadow-[7px_7px_0px_0px_var(--color-customBlue)] w-full sm:w-full md:w-[40%]'>
-            <div className="w-full flex items-center justify-center flex-col gap-5 py-5">
-                <h1 className="font-fraunces text-3xl font-bold">Create your page</h1>
+            <div className="w-full flex items-center justify-center flex-col  py-5">
+                <h1 className="font-fraunces text-3xl font-bold p-3">Create your page</h1>
                 <p className="font-ibm text-muted text-sm">Takes about a minute.</p>
             </div>
                 <form onSubmit="" className="w-full flex items-center justify-center gap-8 flex-col">
@@ -26,6 +27,12 @@ export default function Sign(){
                         <input placeholder='John Doe' onChange={(e)=>{
                             setName(e.target.value)
                         }} value={name} type="text" className="px-2  font-ibm w-full focus-none border-2 rounded-[5px] py-2" />
+                    </div>
+                    <div className='flex items-start justify-start gap-2 flex-col w-full'>
+                        <label className='font-ibm text-muted' htmlFor="">Username</label>
+                        <input placeholder='~johnthedoe' onChange={(e)=>{
+                            setUsername(e.target.value)
+                        }} value={username} type="text" className="px-2  font-ibm w-full focus-none border-2 rounded-[5px] py-2" />
                     </div>
                     <div className='flex items-start justify-start gap-2 flex-col w-full'>
                         <label className='font-ibm text-muted' htmlFor="">Email</label>
