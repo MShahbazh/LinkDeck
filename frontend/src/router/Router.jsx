@@ -1,6 +1,6 @@
 import {createBrowserRouter, createRoutesFromElements, Route} from 'react-router-dom'
 import Layout from './Layout'
-import { Login, Main, Sign , Dashboard} from '../components'
+import { Login, Main, Sign , Dashboard, Preview} from '../components'
 
 export const router=createBrowserRouter(
     createRoutesFromElements(
@@ -8,7 +8,12 @@ export const router=createBrowserRouter(
             <Route path='' element={<Main/>}/>
             <Route path='/login' element={<Login/>}/>
             <Route path='/sign' element={<Sign/>}/>
-            <Route path='/dashboard' element={<Dashboard/>}/>
+            <Route path='/dashboard'>
+                <Route path='' element={<Dashboard/>}/>
+                <Route path='preview' element={<Preview/>}/>
+            </Route>
+                {/* <Route path='/dashboard' element={<Dashboard/>}/> */}
+            
         </Route>
     )
 )

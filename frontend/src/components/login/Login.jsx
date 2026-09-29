@@ -2,7 +2,6 @@ import {Eye,EyeOff,ArrowLeft} from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector} from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
-import { setLogin } from '../../store/slice'
 
 export default function Login(){
     const [seePass,setseePass]=useState(false)
@@ -12,30 +11,30 @@ export default function Login(){
     const navigate=useNavigate()
     const {login,user}=useSelector(state=>state.loginSlice)
 
-    useEffect(()=>{
-        if(login&&user){  
-            navigate('/',{replace:true})
-        }
-    },[login,navigate,user])
+    // useEffect(()=>{
+    //     if(login&&user){  
+    //         navigate('/',{replace:true})
+    //     }
+    // },[login,navigate,user])
     
 
     function submitIt(e){
         e.preventDefault()
-        dispatch(setLogin({name:"Jack",username:"jackTrade",
-        links:[
-            {
-            id:0,
-            index:0,
-            link:"https://github.com/",
-            subtext:"My Placeholder",
-            },
-            {
-            id:1,
-            index:0,
-            link:"https://github.com/",
-            subtext:"",
-            },
-        ]}))
+        // dispatch(setLogin({name:"Jack",username:"jackTrade",
+        // links:[
+        //     {
+        //     id:0,
+        //     index:0,
+        //     link:"https://github.com/",
+        //     subtext:"My Placeholder",
+        //     },
+        //     {
+        //     id:1,
+        //     index:0,
+        //     link:"https://github.com/",
+        //     subtext:"",
+        //     },
+        // ]}))
         navigate('/')
     }
 
@@ -46,11 +45,8 @@ export default function Login(){
             <div className='w-full'>
                 <Link to="/"><h1 className='w-fit py-2 px-2 cursor-pointer hover:scale-105 duration-300'><ArrowLeft/></h1></Link>
             </div>
-        <div className="flex items-center justify-center gap-2  md:gap-3">
-                <img src="../../public/favicon.svg" alt="" className="scale-90" />
-                <h1 className="md:text-md font-ibm">LinkDeck</h1>
-        </div>
-        <div className='flex items-start justify-center flex-col gap-5 border-3 py-5 px-10 rounded-[10px] shadow-[7px_7px_0px_0px_var(--color-customBlue)] w-full sm:w-full md:w-[40%]'>
+     
+        <div className='flex items-start justify-center flex-col gap-5 border-3  px-10 rounded-[10px] shadow-[7px_7px_0px_0px_var(--color-customBlue)] w-full sm:w-full md:w-[40%]'>
             <div className="w-full flex items-center justify-center flex-col  py-5">
                 <h1 className="font-fraunces text-3xl font-bold">Welcome Back!</h1>
                 <p className="font-ibm text-muted text-sm">Log in to manage your links</p>
@@ -78,7 +74,7 @@ export default function Login(){
                     </div>
                     <button type='submit' className="shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] cursor-pointer  hover:-translate-x-1 hover:-translate-y-0.5 duration-500 border-2 border-black py-2 px-5 text-center font-ibm rounded-[3px] bg-customRed text-white w-[60%]">Log In</button>
                 </form>
-            <div className="w-full flex items-center justify-center gap-3 flex-col py-8">
+            <div className="w-full flex items-center justify-center gap-3 flex-col py-3">
                 <Link to="/sign" className='font-ibm text-muted'>Don't have an account? <span className="cursor-pointer text-black  hover:underline">Create one</span></Link>
             </div>
         </div>

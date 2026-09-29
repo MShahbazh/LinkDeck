@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 
 export default function Main(){
 
-    const {login,user}=useSelector(state=>state.loginSlice)
+    // const {login,user}=useSelector(state=>state.loginSlice)
     const dataSec=[
         {id:"01",heading:"Add your Links",paragraph:"Drop in your GitHub, portfolio, socials, and anything else worth sharing."},
 
@@ -23,12 +23,12 @@ export default function Main(){
                 <p className="text-md font-ibm text-muted">
                     A profile for the things you've built — one page for your repos, your writing, and everywhere else people can find you.
                 </p>
-                {
+                {/* {
                     login&&user?
                     <Link to='/dashboard' className="shadow-[7px_7px_0px_0px_rgba(0,0,0,1)] font-ibm cursor-pointer   hover:-translate-x-1 hover:-translate-y-0.5 duration-500 border md:border-2 border-black  text-white bg-customRed py-2 px-5  rounded-[3px]">Enter</Link>
                     :
                     <Link to='/sign' className="shadow-[7px_7px_0px_0px_rgba(0,0,0,1)] font-ibm cursor-pointer   hover:-translate-x-1 hover:-translate-y-0.5 duration-500 border md:border-2 border-black  text-white bg-customRed py-2 px-5  rounded-[3px]">Claim Your Page</Link>
-                }
+                } */}
             </div>
         </div>
         <div className="py-25 px-10 flex justify-center flex-col gap-14">
