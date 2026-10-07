@@ -4,7 +4,6 @@ import { populate } from "../controllers/index.js";
 
 const verifyRouter = express.Router();
 
-verifyRouter.use(verifyAPI);
-verifyRouter.post("/", populate);
+verifyRouter.post("/", verifyAPI,populate);
 
 export default verifyRouter;
