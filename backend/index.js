@@ -16,7 +16,7 @@ const PORT = process.env.PORT || 8000;
 export const MONGODB_URI = process.env.MONGODB_URI;
 export const SECRET_KEY = process.env.SECRET_KEY;
 const corsOption = {
-  origin: "http://localhost:5173",
+  origin: ["http://localhost:5173","https://link-deck-eight.vercel.app/"]
   methods: ["GET", "POST", "DELETE", "PUT", "PATCH"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true,
