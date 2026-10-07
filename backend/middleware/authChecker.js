@@ -1,7 +1,7 @@
 import { signSchema, loginSchema } from "../schemas/authSchema.js";
 
 export const checkAuth = (req, res, next) => {
-if (!req.body) {
+  if (!req.body) {
     return res.status(400).json({
       success: false,
       message: "Request body is missing.",

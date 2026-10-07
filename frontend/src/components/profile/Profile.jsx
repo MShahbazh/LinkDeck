@@ -9,24 +9,21 @@ export default function Profile() {
   const [user, setUser] = useState(null);
   const [messageBar, showMessage] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
-  
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const API_URL = import.meta.env.VITE_BACKEND_URL
-        const response = await fetch(
-          `${API_URL}/profile/${username}`,
-          {
-            method: "GET",
-            headers: { "Content-Type": "application/json" },
-          },
-        );
+        const API_URL = import.meta.env.VITE_BACKEND_URL;
+        const response = await fetch(`${API_URL}/profile/${username}`, {
+          method: "GET",
+          headers: { "Content-Type": "application/json" },
+        });
         if (!response) throw new Error("Client Error (404). Try Again");
         const data = await response.json();
         if (!data.success) {
           throw new Error(data.content);
         }
-        setUser(data.content);
+        setUser(data);
       } catch (error) {
         setErrorMessage(error.message);
       }
@@ -56,7 +53,7 @@ export default function Profile() {
             </div>
           ) : (
             <div className="flex items-center justify-center flex-col gap-5 font-ibm min-h-screen">
-              <h1>Profile is not Visible</h1>
+              <h1>Profile is not Public</h1>
             </div>
           )}
         </div>

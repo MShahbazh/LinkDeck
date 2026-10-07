@@ -12,6 +12,7 @@ export const router = createBrowserRouter(
     <Route path="/" element={<Layout />}>
       <Route path="/login" element={<Login />} />
       <Route path="/sign" element={<Sign />} />
+
       <Route path="/profile/:username" element={<Profile />} />
       <Route element={<Protect />}>
         <Route path="" element={<Main />} />

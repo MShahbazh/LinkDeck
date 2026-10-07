@@ -127,19 +127,21 @@ LinkDeck/
         linkSchema.js
 ```
 
-## Frontend Env Example
+## Frontend Environment Variables (`.env`)
 
 ```bash
 VITE_BACKEND_URL=""
 VITE_FRONTEND_URL=""
 ```
-The above variables will contain your actual frontend and backend links (production) or localhost addresses (development).
 
-## Backend Env Example
+These variables should contain your production URLs or your `localhost` addresses for local development.
+
+## Backend Environment Variables (`.env`)
 
 ```bash
 PORT=8000
 MONGODB_URI=''  
 SECRET_KEY=""
 ```
-This contains default port, mongodb url and secret key.
+
+This file specifies your server's application port, the MongoDB connection string, and the authentication secret key.

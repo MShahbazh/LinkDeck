@@ -52,9 +52,8 @@ const login = async (req, res) => {
         httpOnly: true,
         secure: true,
         sameSite: "none",
-        path:'/',
-        expires:new Date(Date.now() + 7 * 24 * 60 * 60 * 1000) 
-
+        path: "/",
+        expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
       });
 
       return res.status(200).json({
@@ -69,8 +68,7 @@ const login = async (req, res) => {
         },
       });
     } else throw new Error("Incorrect Password");
-  } catch (error) {    
-
+  } catch (error) {
     const errors = ["Username Does Not Exist", "Incorrect Password"];
     if (errors.includes(error.message)) {
       return res.status(401).json({
