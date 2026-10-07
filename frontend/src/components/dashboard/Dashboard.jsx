@@ -74,9 +74,11 @@ export default function Dashboard() {
 
   async function copyLink() {
     try {
+      
+      const API_URL = import.meta.env.VITE_BACKEND_URL
       if (!user || !user.username) throw new Error("User Not Found");
       await navigator.clipboard.writeText(
-        `http://localhost:5173/profile/${user.username}`,
+        `${API_URL}/profile/${user.username}`,
       );
       dispatch(
         setVerifyMessage({
@@ -102,7 +104,7 @@ export default function Dashboard() {
     <div className="relative">
       <div className="relative border-b-2 font-ibm  flex sm:flex-row flex-col sm:gap-0 gap-5 px-3 py-3  items-center justify-between w-full md:px-5">
         <div className="flex items-center justify-center gap-2  md:gap-5 md:py-1 sm:py-3  ">
-          <img src="../../public/favicon.svg" alt="" className="" />
+          <img src="/favicon.svg" alt="" className="" />
           <h1 className="md:text-md">LinkDeck</h1>
         </div>
         <div
