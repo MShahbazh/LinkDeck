@@ -14,7 +14,7 @@ export const verify = createAsyncThunk("/verify", async (showBar = false) => {
     const data = await response.json();
     data.showBar = false;
     
-    console.log(data)
+    
     return data;
   } catch (error) {
     return {

@@ -4,8 +4,7 @@ import { User } from "../models/User.js";
 
 export const verifyAPI = async (req, res, next) => {
   try{
-    console.log("Raw Headers:", req.headers); 
-    console.log("Parsed Cookies:", req.cookies); 
+    
     const token = req.cookies.token;
     if (!token) {
       return res.status(401).json({

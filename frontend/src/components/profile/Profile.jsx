@@ -9,12 +9,13 @@ export default function Profile() {
   const [user, setUser] = useState(null);
   const [messageBar, showMessage] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
-
+  
   useEffect(() => {
     const fetchData = async () => {
       try {
+        const API_URL = import.meta.env.VITE_BACKEND_URL
         const response = await fetch(
-          `http://localhost:8000/profile/${username}`,
+          `${API_URL}/profile/${username}`,
           {
             method: "GET",
             headers: { "Content-Type": "application/json" },
