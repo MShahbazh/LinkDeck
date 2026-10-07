@@ -1,6 +1,7 @@
 import { User, ArrowRight } from "lucide-react";
 
 export default function Card({ user }) {
+  if (!user) return null;
   return (
     <>
       <div className="flex items-center justify-center bg-slightRed border-b-2 border-b-black flex-col gap-10 py-10 px-5">
