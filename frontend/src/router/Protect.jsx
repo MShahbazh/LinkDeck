@@ -12,11 +12,11 @@ export default function Protect() {
     dispatch(verify(false));
   }, [dispatch, location.pathname]);
 
-  useEffect(() => {
+  useEffect(() =>{
     if (!loading&&!user){
       navigate("/", { replace: true });
     }
   }, [user, loading, navigate]);
-  if (loading || !user) return null;
+  
   return <Outlet />;
 }
