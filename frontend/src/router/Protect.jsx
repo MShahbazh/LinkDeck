@@ -14,6 +14,7 @@ export default function Protect() {
 
   useEffect(() => {
     if (!loading && !user) {
+      
       navigate("/", { replace: true });
     }
   }, [user, loading, navigate]);

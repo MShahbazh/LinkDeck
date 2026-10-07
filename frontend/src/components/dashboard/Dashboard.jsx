@@ -120,7 +120,7 @@ export default function Dashboard() {
             <h1
               onClick={() => {
                 dispatch(logout());
-                navigate("/");
+                
               }}
               className="px-3 py-3   w-full text-customRed cursor-pointer hover:bg-lightRed"
             >
