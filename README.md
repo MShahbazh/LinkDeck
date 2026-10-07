@@ -21,7 +21,10 @@ LinkDeck/
 │   package-lock.json
 │   package.json
 │   vite.config.js
-│   
+|   .env.production
+|   .env.development
+│
+|
 ├───public
 │       favicon.svg
 │       
@@ -93,6 +96,7 @@ LinkDeck/
 │   index.js
 │   package-lock.json
 │   package.json
+|   .env.example
 │   
 ├───config
 │       db.js
@@ -122,3 +126,20 @@ LinkDeck/
         authSchema.js
         linkSchema.js
 ```
+
+## Frontend Env Example
+
+```bash
+VITE_BACKEND_URL=""
+VITE_FRONTEND_URL=""
+```
+The above variables will contain your actual frontend and backend links (production) or localhost addresses (development).
+
+## Backend Env Example
+
+```bash
+PORT=8000
+MONGODB_URI=''  
+SECRET_KEY=""
+```
+This contains default port, mongodb url and secret key.

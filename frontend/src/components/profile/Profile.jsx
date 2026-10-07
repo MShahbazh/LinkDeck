@@ -47,23 +47,37 @@ export default function Profile() {
   }, [errorMessage, showMessage]);
 
   return (
-  <div className="relative">
-    {user ? (
-      <div>
-        <Card user={user} />
-      </div>
-    ) : (
-      <div className="flex items-center justify-center flex-col gap-5 font-ibm min-h-screen">
-        <h1>Please Wait: Fetching Data</h1>
-        <Loader />
-      </div>
-    )}
-
-    {messageBar && (
-      <div className="fixed top-0 right-0 p-5">
-        <Message navigation={showError} open={messageBar} close={showMessage} duration={2000} message={errorMessage} success={false} />
-      </div>
-    )}
-  </div>
-);
+    <div className="relative">
+      {user ? (
+        <div>
+          {user.content ? (
+            <div>
+              <Card user={user.content} />
+            </div>
+          ) : (
+            <div className="flex items-center justify-center flex-col gap-5 font-ibm min-h-screen">
+              <h1>Profile is not Visible</h1>
+            </div>
+          )}
+        </div>
+      ) : (
+        <div className="flex items-center justify-center flex-col gap-5 font-ibm min-h-screen">
+          <h1>Please Wait: Fetching Data</h1>
+          <Loader />
+        </div>
+      )}
+      {messageBar ? (
+        <div className="fixed top-0 right-0 p-5">
+          <Message
+            navigation={showError}
+            open={messageBar}
+            close={showMessage}
+            duration={2000}
+            message={errorMessage}
+            success={false}
+          />
+        </div>
+      ) : null}
+    </div>
+  );
 }
