@@ -50,8 +50,10 @@ const login = async (req, res) => {
       const token = jwt.sign(payload, SECRET_KEY);
       res.cookie("token", token, {
         httpOnly: true,
-        secure: false,
+        secure: true,
         sameSite: "none",
+        maxAge:7*24*60*60*3600
+
       });
 
       return res.status(200).json({
