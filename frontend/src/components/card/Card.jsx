@@ -34,6 +34,8 @@ export default function Card({ user }) {
             {user.links.map((element) => {
               return (
                 <a
+                 target="_blank"  
+                   rel="noopener noreferrer"
                   href={element.link}
                   key={element._id}
                   className="hover:-translate-y-1  duration-300 shadow-[3px_3px_0px_0px]  shadow-customOrange border-2 border-black rounded-[5px] py-3 px-3 flex flex-col md:flex-row  items-center justify-center w-full gap-5"
