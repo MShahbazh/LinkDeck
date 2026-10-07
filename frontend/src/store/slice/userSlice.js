@@ -13,7 +13,6 @@ export const verify = createAsyncThunk("/verify", async (showBar = false) => {
     });
     const data = await response.json();
     data.showBar = false;
-
     return data;
   } catch (error) {
     return {
@@ -33,6 +32,7 @@ export const logout = createAsyncThunk("/logout", async () => {
       credentials: "include",
     });
     const data = await response.json();
+    
     return data;
   } catch (error) {
     return {

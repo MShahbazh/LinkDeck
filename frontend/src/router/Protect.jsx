@@ -9,12 +9,13 @@ export default function Protect() {
   const navigate = useNavigate();
   const location = useLocation();
   useEffect(() => {
-    dispatch(verify(false));
+    if(location.pathname=='/dashboard'){
+      dispatch(verify(false));
+    }
   }, [dispatch, location.pathname]);
 
   useEffect(() => {
     if (!loading && !user) {
-      
       navigate("/", { replace: true });
     }
   }, [user, loading, navigate]);
