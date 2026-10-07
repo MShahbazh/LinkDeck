@@ -10,11 +10,11 @@ import Protect from "./Protect";
 export const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
-      <Route path="" element={<Main />} />
       <Route path="/login" element={<Login />} />
       <Route path="/sign" element={<Sign />} />
       <Route path="/profile/:username" element={<Profile />} />
       <Route element={<Protect />}>
+        <Route path="" element={<Main />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/dashboard/preview" element={<Preview />} />
       </Route>
