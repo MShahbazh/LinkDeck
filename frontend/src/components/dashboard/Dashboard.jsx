@@ -75,7 +75,7 @@ export default function Dashboard() {
   async function copyLink() {
     try {
       
-      const API_URL = import.meta.env.VITE_BACKEND_URL
+      const API_URL = import.meta.env.VITE_FRONTEND_URL
       if (!user || !user.username) throw new Error("User Not Found");
       await navigator.clipboard.writeText(
         `${API_URL}/profile/${user.username}`,
