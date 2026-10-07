@@ -1,9 +1,11 @@
 import { createAsyncThunk, createSlice, isAnyOf } from "@reduxjs/toolkit";
 import { login } from "./authSlice";
 
+const API_URL = import.meta.env.BACKEND_URL;
+
 export const verify = createAsyncThunk("/verify", async (showBar = false) => {
   try {
-    const response = await fetch("http://localhost:8000/verify", {
+    const response = await fetch(`${API_URL}/verify`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: null,
@@ -23,7 +25,7 @@ export const verify = createAsyncThunk("/verify", async (showBar = false) => {
 
 export const logout = createAsyncThunk("/logout", async () => {
   try {
-    const response = await fetch("http://localhost:8000/auth/logout", {
+    const response = await fetch(`${API_URL}/auth/logout`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: null,
@@ -42,7 +44,7 @@ export const logout = createAsyncThunk("/logout", async () => {
 
 export const updateUser = createAsyncThunk("/update", async (updateData) => {
   try {
-    const response = await fetch("http://localhost:8000/user/update", {
+    const response = await fetch(`${API_URL}/user/update`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(updateData),
@@ -61,7 +63,7 @@ export const updateUser = createAsyncThunk("/update", async (updateData) => {
 
 export const addLink = createAsyncThunk("/addLink", async (newLink) => {
   try {
-    const response = await fetch("http://localhost:8000/user/addLink", {
+    const response = await fetch(`${API_URL}/user/addLink`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newLink),
@@ -81,7 +83,7 @@ export const addLink = createAsyncThunk("/addLink", async (newLink) => {
 
 export const editLink = createAsyncThunk("/addLink", async (updatedLink) => {
   try {
-    const response = await fetch("http://localhost:8000/user/editLink", {
+    const response = await fetch(`${API_URL}/user/editLink`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(updatedLink),
@@ -101,7 +103,7 @@ export const editLink = createAsyncThunk("/addLink", async (updatedLink) => {
 
 export const deleteLink = createAsyncThunk("/addLink", async (id) => {
   try {
-    const response = await fetch("http://localhost:8000/user/deleteLink", {
+    const response = await fetch(`${API_URL}/user/deleteLink`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ id }),
