@@ -10,7 +10,7 @@ const populate = async (req, res) => {
       content: getUser,
       showBar: false,
     });
-  } catch (error) {
+  } catch (error){
     return res.status(500).json({
       success: false,
       message: "Internal Server Error",
