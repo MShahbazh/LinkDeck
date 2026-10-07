@@ -109,7 +109,6 @@ const editLink = async (req, res) => {
       content: getUser,
     });
   } catch (error) {
-    console.log(error.message);
     return res.status(500).json({
       success: false,
       message: "Internal Server Error",
