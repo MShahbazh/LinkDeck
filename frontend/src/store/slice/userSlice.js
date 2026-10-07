@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice, isAnyOf } from "@reduxjs/toolkit";
 import { login } from "./authSlice";
 
-const API_URL = import.meta.env.BACKEND_URL;
+const API_URL = import.meta.env.VITE_BACKEND_URL;
 
 export const verify = createAsyncThunk("/verify", async (showBar = false) => {
   try {
@@ -13,6 +13,7 @@ export const verify = createAsyncThunk("/verify", async (showBar = false) => {
     });
     const data = await response.json();
     data.showBar = false;
+    
     return data;
   } catch (error) {
     return {

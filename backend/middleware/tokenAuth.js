@@ -4,6 +4,7 @@ import { User } from "../models/User.js";
 
 export const verifyAPI = async (req, res, next) => {
   try {
+    console.log(req)
     const token = req.cookies.token;
     if (!token) {
       return res.status(401).json({
@@ -16,6 +17,7 @@ export const verifyAPI = async (req, res, next) => {
     req.user = jwt.verify(token, SECRET_KEY);
     if (!req.user || !req.user.id) {
       return res.status(401).json({
+        
         destroy: true,
         success: false,
         message: "Token Corrupted",
@@ -25,6 +27,7 @@ export const verifyAPI = async (req, res, next) => {
     const result = await User.findOne({ _id: req.user.id }).select("-password");
     if (!result) {
       return res.status(401).json({
+        
         destroy: true,
         success: false,
         message: "User Not Found",
@@ -34,6 +37,7 @@ export const verifyAPI = async (req, res, next) => {
     return next();
   } catch (error) {
     res.status(401).json({
+      
       destroy: true,
       success: false,
       message: "Invalid or Expired Token",

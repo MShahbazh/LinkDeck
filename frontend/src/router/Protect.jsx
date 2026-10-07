@@ -13,7 +13,7 @@ export default function Protect() {
   }, [dispatch, location.pathname]);
 
   useEffect(() => {
-    if (!loading && !user) {
+    if (!loading&&!user){
       navigate("/", { replace: true });
     }
   }, [user, loading, navigate]);

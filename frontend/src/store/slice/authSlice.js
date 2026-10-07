@@ -1,8 +1,10 @@
 import { createAsyncThunk, createSlice, isAnyOf } from "@reduxjs/toolkit";
 
+const API_URL = import.meta.env.VITE_BACKEND_URL;
+
 export const signup = createAsyncThunk("/auth/signup", async (signData) => {
   try {
-    const response = await fetch("http://localhost:8000/auth/signup", {
+    const response = await fetch(`${API_URL}/auth/signup`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(signData),
@@ -18,9 +20,9 @@ export const signup = createAsyncThunk("/auth/signup", async (signData) => {
   }
 });
 
-export const login = createAsyncThunk("/auth/login", async (loginData) => {
+export const login = createAsyncThunk("/auth/login", async (loginData) => {    
   try {
-    const response = await fetch("http://localhost:8000/auth/login", {
+    const response = await fetch(`${API_URL}/auth/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(loginData),

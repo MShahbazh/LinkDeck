@@ -66,8 +66,7 @@ const login = async (req, res) => {
         },
       });
     } else throw new Error("Incorrect Password");
-  } catch (error) {
-    console.log(error)
+  } catch (error) {    
     const errors = ["Username Does Not Exist", "Incorrect Password"];
     if (errors.includes(error.message)) {
       return res.status(401).json({
