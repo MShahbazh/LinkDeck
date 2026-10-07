@@ -9,7 +9,7 @@ export default function Header() {
   return (
     <div className="border-b-2 font-ibm  flex sm:flex-row flex-col sm:gap-0 gap-5 items-center justify-between w-full  py-5 sm:py-3 px-1 md:px-5">
       <div className="flex items-center justify-center gap-2  md:gap-5">
-        <img src="../../favicon.svg" alt="" className="md:scale-110" />
+        <img src="/favicon.svg" alt="" className="md:scale-110" />
         <h1 className="md:text-md">LinkDeck</h1>
       </div>
       <div className="flex items-center justify-center gap-5">
