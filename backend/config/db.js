@@ -7,7 +7,7 @@ export async function connectToMongoDB() {
     console.log("Database Connected");
     return mongoose;
   } catch (error) {
-    console.log("Database Not Connected");
+    console.log("Database Not Connected: ",error);
     return null;
   }
 }
