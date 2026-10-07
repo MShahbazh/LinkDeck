@@ -8,5 +8,22 @@ import ScrollTop from "./scroll/Scroll";
 import User from "./user/User";
 import Preview from "./preview/Preview";
 import Card from "./card/Card";
+import Loader from "./loader/Loader";
+import Message from "./messageBars/Message";
+import Profile from "./profile/Profile";
 
-export {Header, Footer, Main, Login, Sign,Dashboard,ScrollTop,User, Preview, Card}
+export {
+  Header,
+  Footer,
+  Main,
+  Login,
+  Sign,
+  Dashboard,
+  ScrollTop,
+  User,
+  Preview,
+  Card,
+  Loader,
+  Message,
+  Profile,
+};

@@ -1,59 +1,122 @@
-import { Link } from 'react-router-dom'
-import {Header, Footer} from '../index'
-import { useSelector } from 'react-redux'
+import { Link } from "react-router-dom";
+import { Header, Footer } from "../index";
+import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import Message from "../messageBars/Message";
+import { clearStates, verify } from "../../store/slice/userSlice";
 
-export default function Main(){
+export default function Main() {
+  const { user, verifyMessage } = useSelector((state) => state.userSlice);
+  const [messageBar, showMessage] = useState(false);
 
-    // const {login,user}=useSelector(state=>state.loginSlice)
-    const dataSec=[
-        {id:"01",heading:"Add your Links",paragraph:"Drop in your GitHub, portfolio, socials, and anything else worth sharing."},
+  const dispatch = useDispatch();
 
-        {id:"02",heading:"Sort them by category",paragraph:"Development, projects, writing, and more — each gets its own color."},
+  useEffect(() => {
+    if (!user && verifyMessage && verifyMessage.showBar) {
+      showMessage(true);
+    }
+  }, [user, verifyMessage, showMessage]);
 
-        {id:"03",heading:"Share one page",paragraph:"One clean link that goes everywhere your résumé and bio can't."},
-    ]
-    return(
-        <>
-        <Header/>
-        <div className='bg-lightRed py-25 flex items-start px-10 '>
-            <div className="flex items-start justify-center flex-col md:w-[50%] gap-10">
-                <h1 className="font-bold font-fraunces text-5xl">
-                    Your Work, <span className="italic text-customRed">one</span> Link 
+  const dataSec = [
+    {
+      id: "01",
+      heading: "Add your Links",
+      paragraph:
+        "Drop in your GitHub, portfolio, socials, and anything else worth sharing.",
+    },
+
+    {
+      id: "02",
+      heading: "Sort them by category",
+      paragraph:
+        "Development, projects, writing, and more — each gets its own color.",
+    },
+
+    {
+      id: "03",
+      heading: "Share one page",
+      paragraph:
+        "One clean link that goes everywhere your résumé and bio can't.",
+    },
+  ];
+
+  const showError = () => {
+    if (verifyMessage) {
+      showMessage(false);
+      dispatch(clearStates());
+    }
+  };
+
+  return (
+    <div className="relative">
+      <Header />
+      <div className="bg-lightRed py-25 flex items-start px-10 ">
+        <div className="flex items-start justify-center flex-col md:w-[50%] gap-10">
+          <h1 className="font-bold font-fraunces text-5xl">
+            Your Work, <span className="italic text-customRed">one</span> Link
+          </h1>
+          <p className="text-md font-ibm text-muted">
+            A profile for the things you've built — one page for your repos,
+            your writing, and everywhere else people can find you.
+          </p>
+          {user ? (
+            <Link
+              onClick={() => {
+                dispatch(verify(true));
+              }}
+              to="/dashboard"
+              className="shadow-[7px_7px_0px_0px_rgba(0,0,0,1)] font-ibm cursor-pointer   hover:-translate-x-1 hover:-translate-y-0.5 duration-500 border md:border-2 border-black  text-white bg-customRed py-2 px-5  rounded-[3px]"
+            >
+              Enter
+            </Link>
+          ) : (
+            <Link
+              to="/sign"
+              className="shadow-[7px_7px_0px_0px_rgba(0,0,0,1)] font-ibm cursor-pointer   hover:-translate-x-1 hover:-translate-y-0.5 duration-500 border md:border-2 border-black  text-white bg-customRed py-2 px-5  rounded-[3px]"
+            >
+              Claim Your Page
+            </Link>
+          )}
+        </div>
+      </div>
+      <div className="py-25 px-10 flex justify-center flex-col gap-14">
+        <h1 className="flex items-center justify-center font-fraunces flex-col gap-3 text-4xl font-bold">
+          How It Works
+          <hr className="w-[10%] border-2 border-customRed rounded-[10px]" />
+        </h1>
+
+        <div className="grid md:grid-row-1 md:grid-cols-3 grid-cols-1 gap-x-5 gap-y-10 ">
+          {dataSec.map((element) => {
+            return (
+              <div
+                className="shadow-[7px_7px_0px_0px_var(--color-customOrange)] border-3  p-5 rounded-[10px] flex  justify-center flex-col gap-3"
+                key={element.id}
+              >
+                <h1 className="text-white border-black border-2 flex items-center justify-center rounded-full w-12 h-12 bg-customRed font-bold text-xl font-fraunces">
+                  {element.id}
                 </h1>
-                <p className="text-md font-ibm text-muted">
-                    A profile for the things you've built — one page for your repos, your writing, and everywhere else people can find you.
-                </p>
-                {/* {
-                    login&&user?
-                    <Link to='/dashboard' className="shadow-[7px_7px_0px_0px_rgba(0,0,0,1)] font-ibm cursor-pointer   hover:-translate-x-1 hover:-translate-y-0.5 duration-500 border md:border-2 border-black  text-white bg-customRed py-2 px-5  rounded-[3px]">Enter</Link>
-                    :
-                    <Link to='/sign' className="shadow-[7px_7px_0px_0px_rgba(0,0,0,1)] font-ibm cursor-pointer   hover:-translate-x-1 hover:-translate-y-0.5 duration-500 border md:border-2 border-black  text-white bg-customRed py-2 px-5  rounded-[3px]">Claim Your Page</Link>
-                } */}
-            </div>
-        </div>
-        <div className="py-25 px-10 flex justify-center flex-col gap-14">
-            <h1 className="flex items-center justify-center font-fraunces flex-col gap-3 text-4xl font-bold">How It Works 
-                <hr  className="w-[10%] border-2 border-customRed rounded-[10px]"/>
-            </h1>
-            
-            <div className="grid md:grid-row-1 md:grid-cols-3 grid-cols-1 gap-x-5 gap-y-10 ">
-                {
-                    dataSec.map((element)=>{
-                        return(
-                            <div className="shadow-[7px_7px_0px_0px_var(--color-customOrange)] border-3  p-5 rounded-[10px] flex  justify-center flex-col gap-3" key={element.id}>
-                               
-                                 <h1 className="text-white border-black border-2 flex items-center justify-center rounded-full w-12 h-12 bg-customRed font-bold text-xl font-fraunces">{element.id}</h1>
-                               
-                                <p className=" font-fraunces text-2xl">{element.heading}</p>
-                                <p className="font-ibm text-sm">{element.paragraph}</p>
-                            </div>
-                        )
-                    })
-                }
-            </div>
 
+                <p className=" font-fraunces text-2xl">{element.heading}</p>
+                <p className="font-ibm text-sm">{element.paragraph}</p>
+              </div>
+            );
+          })}
         </div>
-        <Footer/>
-        </>
-    )
+      </div>
+      {messageBar ? (
+        <div className="absolute top-0 right-0 p-5">
+          <Message
+            navigation={showError}
+            open={messageBar}
+            close={showMessage}
+            duration={2000}
+            message={verifyMessage.message}
+            success={verifyMessage.success}
+          />
+        </div>
+      ) : null}
+      <Footer />
+    </div>
+  );
 }

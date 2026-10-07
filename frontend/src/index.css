@@ -1,20 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
 @import "tailwindcss";
 
-@theme{
-  --font-fraunces:"Fraunces";
+@theme {
+  --font-fraunces: "Fraunces";
   --font-ibm: "IBM Plex Mono";
-  --color-surface:#F7F7F2;
-  --color-ink:#14140F;
-  --color-muted:#6B6B63;
-  --color-customBlue:#2F6FED;
-  --color-customGreen:#2FBE73;
-  --color-customPink:#FF3E6C;
-  --color-customPurple:#A56BFF;
-  --color-customYellow:#FFC53D;
-  --color-customOrange:#FF8A3D;
-  --color-customRed:#FF3B30;
-  --color-lightRed:#FFF8F6;
-  --color-slightRed:#FEEEE9;
-  
+  --color-surface: #f7f7f2;
+  --color-ink: #14140f;
+  --color-muted: #6b6b63;
+  --color-customBlue: #2f6fed;
+  --color-customGreen: #2fbe73;
+  --color-slightGreen: #dbf9ea;
+  --color-customPink: #ff3e6c;
+  --color-customPurple: #a56bff;
+  --color-customYellow: #ffc53d;
+  --color-customOrange: #ff8a3d;
+  --color-customRed: #ff3b30;
+  --color-lightRed: #fff8f6;
+  --color-slightRed: #feeee9;
 }
