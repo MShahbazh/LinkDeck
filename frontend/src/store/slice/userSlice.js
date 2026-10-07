@@ -4,6 +4,7 @@ import { login } from "./authSlice";
 const API_URL = import.meta.env.VITE_BACKEND_URL;
 
 export const verify = createAsyncThunk("/verify", async (showBar = false) => {
+  
   try {
     const response = await fetch(`${API_URL}/verify`, {
       method: "POST",
@@ -171,6 +172,7 @@ export const userSlice = createSlice({
 
       .addMatcher(
         isAnyOf(login.fulfilled, verify.fulfilled),
+        
         (state, action) => {
           state.loading = false;
 

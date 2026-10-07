@@ -7,18 +7,15 @@ export default function Protect() {
   const { user, loading } = useSelector((state) => state.userSlice);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const location = useLocation();
-  useEffect(() => {
-    if(location.pathname=='/dashboard'){
+  useEffect(() => {  
       dispatch(verify(false));
-    }
-  }, [dispatch, location.pathname]);
+  }, [dispatch]);
 
   useEffect(() => {
+    
     if (!loading && !user) {
       navigate("/", { replace: true });
     }
   }, [user, loading, navigate]);
-
   return <Outlet />;
 }
