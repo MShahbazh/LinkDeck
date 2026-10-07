@@ -1,11 +1,12 @@
-import {
-  createBrowserRouter,
-  createRoutesFromElements,
-  Route,
-} from "react-router-dom";
+import { createBrowserRouter, createRoutesFromElements, Route } from "react-router-dom";
 import Layout from "./Layout";
 import { Login, Main, Sign, Dashboard, Preview, Profile } from "../components";
 import Protect from "./Protect";
+
+// 🪵 LOG 2: Inspect the imported component references
+console.log("🗺️ ROUTER FILE: Routes are compiling.");
+console.log("Is Profile component defined?", !!Profile);
+console.log("Type of Profile:", typeof Profile);
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
